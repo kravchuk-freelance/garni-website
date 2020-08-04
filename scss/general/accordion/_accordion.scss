@@ -1,0 +1,265 @@
+// <div class="accordion" id="accordion">
+//     <ul class="accordion__list">
+//         <li class="accordion__item">
+//             <div class="accordion__description">
+//                 <p class="accordion__title">
+
+//                 </p>
+//                 <p class="accordion__paragraph">
+
+//                 </p>
+//                 <div class="accordion__btn">
+//                     <svg class="accordion__svg" width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
+//                         <path d="M8.59 5.24H5.242V8.516H4.108V5.24H0.76V4.178H4.108V0.883999H5.242V4.178H8.59V5.24Z" />
+//                     </svg>
+//                 </div>
+//             </div>
+//             <div class="accordion__price">
+//                 <div class="accordion__price_inner">
+//                     <ul class="accordion__price_list">
+//                         <li class="accordion__price_item">
+//                             <p class="accordion__price_title">
+
+//                             </p>
+//                             <p class="accordion__price_cost">
+
+//                             </p>
+//                         </li>
+//                         <li class="accordion__price_item">
+//                             <p class="accordion__price_title">
+
+//                             </p>
+//                             <p class="accordion__price_cost">
+
+//                             </p>
+//                         </li>
+//                         <li class="accordion__price_item">
+//                             <p class="accordion__price_title">
+
+//                             </p>
+//                             <p class="accordion__price_cost">
+
+//                             </p>
+//                         </li>
+//                         <li class="accordion__price_item">
+//                             <p class="accordion__price_title">
+
+//                             </p>
+//                             <p class="accordion__price_cost">
+
+//                             </p>
+//                         </li>
+//                     </ul>
+//                 </div>
+//             </div>
+//         </li>
+//     </ul>
+// </div>
+
+.accordion {
+
+    &--active {
+
+        .accordion__btn {
+            transform: rotate(135deg);
+        }
+    }
+
+    &__list {
+        counter-reset: accordion-item;
+    }
+
+    &__item {
+        min-height: 150px;
+        padding: 3.57% 12px;
+        border-bottom: 1px solid $brown_3;
+        counter-increment: accordion-item;
+
+        &:first-child {
+            border-top: 1px solid $brown_3;
+        }
+    }
+
+    &__title {
+        @include font(36px, 36px, "MinionPro-Semibold");
+
+        padding-left: 90px;
+        color: $brown_0;
+    }
+
+    &__description {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(364px, 40.45%) minmax(280px, 33.17%) 40px;
+        grid-template-rows: minmax(58px, 1fr);
+        grid-gap: 15px;
+        justify-content: space-between;
+        align-items: center;
+
+        &::before {
+            @include font(18px, 18px, "MinionPro-Semibold");
+
+            content: "0" counter(accordion-item);
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $brown_0;
+            opacity: 0.2;
+        }
+    }
+
+    &__paragraph {
+        @include font(12px, 20px, "Montserrat-Regular");
+
+        color: $gray_0;
+    }
+
+    &__price {
+        display: none;
+        margin-top: 55px;
+
+        &_inner {
+            display: grid;
+            grid-template-columns: minmax(364px, 40.45%) minmax(280px, 33.17%) 40px;
+            grid-gap: 15px;
+            justify-content: space-between;
+        }
+
+        &_list {
+            grid-column: 2/3;
+        }
+
+        &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &_title {
+            @include font(12px, 20px, "MinionPro-Semibold");
+
+            width: 80%;
+            padding-right: 20px;
+            color: $brown_0;
+            text-transform: uppercase;
+        }
+
+        &_cost {
+            @include font(12px, 20px, "MinionPro-Semibold");
+
+            width: 20%;
+            color: $brown_0;
+        }
+    }
+
+    &__btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $brown_0;
+        border-radius: 50%;
+        cursor: pointer;
+        fill: $brown_0;
+        transition: background-color 0.2s, fill 0.2s, transform 0.4s ease-in-out;
+
+        &:hover {
+            background-color: $brown_0;
+            fill: $white_1;
+        }
+    }
+
+    &__svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        margin: 0 auto;
+    }
+}
+
+// 0 - 1023
+@include respond-to(tablet) {
+
+    .accordion {
+
+        &__title {
+            font-size: 3rem;
+            line-height: 3rem;
+            padding-left: 60px;
+        }
+    }
+}
+
+// 0 - 767
+@include respond-to(mobile) {
+
+    .accordion {
+
+        &__item {
+            position: relative;
+            padding: 60px 12px;
+
+            &::before {
+                @include font(14px, 14px, "MinionPro-Semibold");
+
+                content: "0" counter(accordion-item);
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $brown_0;
+                opacity: 0.2;
+            }
+        }
+
+        &__description {
+            grid-template-columns: auto 40px;
+            grid-template-rows: auto;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        &__title {
+            padding-left: 0;
+            font-size: 2.4rem;
+            line-height: 2.4rem;
+        }
+
+        &__paragraph {
+            display: none;
+        }
+
+        &__price {
+
+            &_inner {
+                display: block;
+            }
+
+            &_item {
+                display: grid;
+                grid-template-columns: auto 40px;
+                grid-gap: 15px;
+            }
+
+            &_title {
+                width: 100%;
+                padding-right: 0;
+            }
+
+            &_cost {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.services {
+    @extend %center_block;
+
+    padding: 5.21% 0 10.42%;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        grid-gap: 20px;
+    }
+}
+
+// 0 - 1023
+@include respond-to(tablet) {
+
+    .services {
+        padding: 30px 0;
+    }
+}
+
+// 0 - 767
+@include respond-to(mobile) {
+
+    .services {
+        padding: 30px;
+
+        &__list {
+            grid-template-columns: repeat(2, minmax(100px, 1fr));
+        }
+    }
+}
+
+// 0 - 479
+@include respond-to(mobile_small) {
+
+    .services {
+
+        &__list {
+            grid-template-columns: 1fr;
+        }
+    }
+}

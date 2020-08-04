@@ -1,0 +1,308 @@
+.about {
+
+    &__slider {
+        position: relative;
+        padding: $main_padding;
+        background-color: $white_2;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 20%;
+            background-color: $white_1;
+        }
+
+        &_inner {
+            @extend %center_block;
+
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 140px 0 200px;
+            z-index: 1;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 19.05%;
+                background-color: #FAF8F4;
+            }
+
+            .slider {
+                width: 50.8%;
+                align-self: flex-start;
+
+                &__photo {
+
+                    &--small {
+                        margin-top: 26.1%;
+                        width: 46.8%;
+                        padding-bottom: 35.88%;
+                    }
+                }
+
+                &__description {
+                    align-self: flex-start;
+
+                    &_photo {
+                        top: -65px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        &_title {
+            @include font(96px, 96px, "MinionPro-Regular");
+
+            max-width: 15.08%;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            color: $creamy_0;
+            text-align: right;
+            overflow: hidden;
+        }
+
+        &_arrows {
+            position: absolute;
+            left: -30%;
+            bottom: 0;
+
+            .slider_arrow {
+                border: 1px solid $brown_0;
+                fill: $brown_0;
+                transition: background-color 0.2s, fill 0.2s;
+
+                &:hover {
+                    background-color: $brown_0;
+                    fill: $white_2;
+                }
+            }
+
+            .slick-disabled {
+                border: 1px solid $brown_3;
+                pointer-events: none;
+            }
+        }
+    }
+
+    &__article {
+        padding: $main_padding;
+        background-color: $white_1;
+
+        &_inner {
+            @extend %center_block;
+
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 185px 0 150px;
+        }
+
+        &_slogan {
+            @include font(36px, 47px, "MinionPro-Semibold");
+
+            position: absolute;
+            bottom: 17%;
+            left: 50%;
+            transform: translateX(-60%);
+            color: $brown_0;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        &_photo {
+            position: relative;
+            height: 0;
+            width: 40.87%;
+            padding-bottom: 31.35%;
+        }
+
+        &_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &_description {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 49.21%;
+
+            &_photos {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-end;
+                width: 48.39%;
+            }
+
+            &_photo {
+
+                &_1 {
+                    position: relative;
+                    top: -55%;
+                    width: 63.67%;
+                    padding-bottom: 81%;
+                }
+
+                &_2 {
+                    position: relative;
+                    width: 64.67%;
+                    padding-bottom: 59.33%;
+                    align-self: flex-start;
+                }
+            }
+
+            &_img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &_paragraph {
+            @include font(12px, 20px, "Montserrat-Regular");
+
+            width: 205px;
+            color: $gray_0;
+        }
+    }
+}
+
+// 0 - 767
+@include respond-to(mobile) {
+
+    .about {
+        
+        &__slider {
+            padding: 0 30px;
+
+            &::before {
+                display: none;
+            }
+
+            &_arrows {
+                display: none;
+            }
+
+            &_inner {
+                flex-direction: column;
+                padding: 30px 0;
+
+                &::before {
+                    display: none;
+                }
+
+                .slider {
+                    width: 100%;
+                    margin-bottom: 80px;
+
+                    &__photo {
+
+                        &--small {
+                            width: 56.83%;
+                            padding-bottom: 37.78%;
+                            transform: translateY(-40%);
+                            margin-top: 0;
+                        }
+                    }
+
+                    &__description {
+                        width: 100%;
+
+                        &_photo {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &_title {
+                font-size: 7.2rem;
+                line-height: 7.8rem;
+                color: $brown_0;
+                max-width: unset;
+                margin-bottom: 50px;
+                transform: rotate(0);
+                writing-mode: unset;
+                text-align: center;
+            }
+        }
+
+        &__article {
+            padding: 0 30px;
+
+            &_inner {
+                flex-direction: column-reverse;
+                padding: 50px 0;
+            }
+
+            &_slogan {
+                bottom: unset;
+                top: 45%;
+                width: 100%;
+                max-width: 244px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 2.4rem;
+                line-height: 3.1rem;
+            }
+
+            &_photo {
+                width: 109.21%;
+                padding-bottom: 83.81%;
+                left: -30px;
+            }
+
+            &_description {
+                flex-direction: column-reverse;
+                width: 100%;
+                margin-bottom: 50px;
+
+                &_photos {
+                    position: relative;
+                    width: 100%;
+                    margin-bottom: 200px;
+                }
+                
+                &_photo {
+
+                    &_1 {
+                        width: 57.78%;
+                        padding-bottom: 86.98%;
+                       margin-right: auto; 
+                    }
+
+                    &_2 {
+                        position: absolute;
+                        top: 50%;
+                        right: -30px;
+                        transform:  translateY(-50%);
+                        width: 57.78%;
+                        padding-bottom: 57.78%;
+                    }
+                }
+            }
+
+            &_paragraph {
+                width: 69.84%;
+                min-width: 220px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

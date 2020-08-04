@@ -1,0 +1,46 @@
+@import "fonts.scss";
+@import "variables.scss";
+@import "extends.scss";
+@import "mixins.scss";
+@import "reset.scss";
+@import "header.scss";
+
+// HEADER
+@import "general/header/header";
+// NAV
+@import "general/nav/nav";
+// MENU
+@import "general/menu/menu";
+// MAIN
+@import "general/main/main";
+// FOOTER
+@import "general/footer/footer";
+// Slider Arrows
+@import "general/slider_arrows/slider_arrows";
+// Card
+@import "general/card/card";
+// Form
+@import "general/form/form";
+// Slider
+@import "general/slider/slider";
+// Accordion
+@import "general/accordion/accordion";
+// Preloader
+@import "general/preloader/preloader";
+// Gotop arrow
+@import "general/gotop/gotop";
+
+// Home
+@import "home/home";
+// Services
+@import "services/services";
+// Salt room
+@import "salt_room/salt_room";
+// About
+@import "about/about";
+// Contacts
+@import "contacts/contacts";
+// Specific service
+@import "specific_service/specific_service";
+// Error
+@import "error/error";

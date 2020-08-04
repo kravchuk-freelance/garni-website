@@ -1,0 +1,96 @@
+.specific_service {
+
+    &__slider {
+        background-color: $white_2;
+
+        &_inner {
+            @extend %center_block;
+
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 4.86% 0 13.89% 7.64%;
+            z-index: 1;
+
+            .slider {
+                width: 50.8%;
+                align-self: flex-end;
+
+                &__photo {
+
+                    &--small {
+                        width: 55.54%;
+                        padding-bottom: 51.28%;
+                        margin-top: 16.58%;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+
+        &_arrows {
+            position: absolute;
+            left: -17%;
+            bottom: 0;
+
+            .slider_arrow {
+                border: 1px solid $brown_0;
+                fill: $brown_0;
+                transition: background-color 0.2s, fill 0.2s;
+
+                &:hover {
+                    background-color: $brown_0;
+                    fill: $white_2;
+                }
+            }
+
+            .slick-disabled {
+                border: 1px solid $brown_3;
+                pointer-events: none;
+            }
+        }
+    }
+
+    &__services {
+        padding: $main_padding;
+
+        &_inner {
+            @extend %center_block;
+
+            padding: 7.09% 0 10.64%;
+        }
+    }
+}
+
+// 0 - 767
+@include respond-to(mobile) {
+
+    .specific_service {
+
+        &__slider {
+
+            &_inner {
+                flex-direction: column;
+                padding: 185px 30px 30px;
+
+                .slider {
+                    width: 100%;
+                    margin-bottom: 80px;
+
+                    &__photo {
+
+                        &--small {
+                            width: 63.81%;
+                            padding-bottom: 42.54%;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            &_arrows {
+                display: none;
+            }
+        }
+    }
+}
